@@ -11,8 +11,8 @@ def home():
     return render_template(
         "index.html",
         hostname=socket.gethostname(),
-        environment=os.getenv("EB_ENVIRONMENT", "AWS Elastic Beanstalk"),
-        region=os.getenv("AWS_REGION", "Configured AWS Region"),
+        environment="Render (Demo Deployment)",
+        region="Render Cloud",
         current_time=datetime.now().strftime("%d %b %Y, %I:%M:%S %p")
     )
 
@@ -32,7 +32,8 @@ def status():
     return jsonify({
         "application": "AWS Scalable Hosting Architecture",
         "status": "operational",
-        "deployment": "AWS Elastic Beanstalk",
+        "deployment": "Render (Demo Deployment)",
+        "architecture": "AWS Cloud",
         "load_balancing": "Application Load Balancer",
         "scaling": "Auto Scaling",
         "monitoring": "Amazon CloudWatch",
@@ -48,7 +49,7 @@ def architecture():
         "dns": "Amazon Route 53",
         "load_balancer": "Application Load Balancer",
         "compute": "Amazon EC2",
-        "orchestration": "AWS Elastic Beanstalk",
+        "orchestration": "AWS Cloud Architecture",
         "scaling": "Auto Scaling Group",
         "storage": "Amazon S3",
         "database": "Amazon RDS",
