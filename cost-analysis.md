@@ -85,8 +85,6 @@ EC2 cost depends on:
 
 Auto Scaling can reduce unnecessary compute capacity during periods of low traffic.
 
----
-
 ### Application Load Balancer
 
 The Application Load Balancer introduces additional cost based on usage.
@@ -99,8 +97,6 @@ Cost is influenced by:
 - Load Balancer Capacity Units
 
 The benefit is improved traffic distribution and application availability.
-
----
 
 ### Amazon RDS
 
@@ -115,8 +111,6 @@ RDS cost depends on:
 
 A development environment can use a smaller configuration, while production workloads may require a larger instance or Multi-AZ deployment.
 
----
-
 ### Amazon S3
 
 S3 costs depend primarily on:
@@ -128,15 +122,11 @@ S3 costs depend primarily on:
 
 S3 lifecycle policies can automatically move older data to lower-cost storage classes when appropriate.
 
----
-
 ### Amazon Route 53
 
 Route 53 costs are associated with DNS hosted zones and DNS queries.
 
 The actual cost depends on the number of hosted zones and query volume.
-
----
 
 ### Amazon CloudWatch
 
@@ -192,7 +182,7 @@ For business-critical applications, the additional infrastructure cost can be ju
 
 ## 7. Cost Optimization Strategies
 
-The following practices can help control AWS infrastructure costs:
+The following practices can help control AWS infrastructure costs.
 
 ### 1. Right-size EC2 Instances
 
@@ -251,75 +241,114 @@ A development environment does not necessarily require the complete production a
 
 A development environment may use:
 
-```text
-Developer
-   |
-   v
-Single EC2 Instance
-   |
-   v
-Development Database
-Production
-The production environment can use:
-Users
-  |
-  v
-Route 53
-  |
-  v
-Application Load Balancer
-  |
-  +----------------+
-  |                |
-  v                v
-EC2 Instance 1  EC2 Instance 2
-  |                |
-  +-------+--------+
-          |
-    Auto Scaling
-          |
-          v
-      Amazon RDS
+    Developer
+        |
+        v
+    Single EC2 Instance
+        |
+        v
+    Development Database
 
-Amazon S3
-Amazon CloudWatch
+### Production
+
+The production environment can use:
+
+    Users
+      |
+      v
+    Route 53
+      |
+      v
+    Application Load Balancer
+      |
+      +----------------+
+      |                |
+      v                v
+    EC2 Instance 1  EC2 Instance 2
+      |                |
+      +-------+--------+
+              |
+        Auto Scaling
+              |
+              v
+          Amazon RDS
+
+    Amazon S3
+    Amazon CloudWatch
+
 This provides a stronger balance between availability, scalability and operational reliability.
 
-9. AWS Pricing Considerations
+---
+
+## 9. AWS Pricing Considerations
 
 AWS pricing varies depending on:
-AWS Region
-Instance type
-Number of running instances
-Application traffic
-Database configuration
-Storage requirements
-Backup requirements
-Monitoring requirements
-Data transfer
+
+- AWS Region
+- Instance type
+- Number of running instances
+- Application traffic
+- Database configuration
+- Storage requirements
+- Backup requirements
+- Monitoring requirements
+- Data transfer
+
 Therefore, exact monthly pricing should be calculated using the AWS Pricing Calculator with the actual production requirements.
+
 The values used for a final production estimate should be reviewed before deployment because AWS pricing can change over time.
 
-10. Demo Deployment Cost
+---
+
+## 10. Demo Deployment Cost
 
 The working demonstration application for this project is deployed on Render.
+
 The Render deployment is used to demonstrate the Flask application publicly.
+
 The proposed AWS architecture represents the production design and would incur AWS infrastructure costs if deployed.
+
 This distinction keeps the project documentation technically accurate.
 
-11. Final Cost Assessment
+---
+
+## 11. Final Cost Assessment
 
 The single-server architecture provides the lowest infrastructure complexity and cost, but it has limited scalability and availability.
+
 The proposed AWS architecture requires additional services and therefore has higher infrastructure costs.
+
 However, it provides:
-High availability
-Automatic scaling
-Load balancing
-Managed database infrastructure
-Durable storage
-Monitoring
-Better fault tolerance
-Improved production readiness
+
+- High availability
+- Automatic scaling
+- Load balancing
+- Managed database infrastructure
+- Durable storage
+- Monitoring
+- Better fault tolerance
+- Improved production readiness
+
 For applications where availability and scalability are important, the additional infrastructure cost can be justified.
+
 For small applications with predictable traffic, a simpler architecture may remain more economical.
-The final architecture should therefore be selected based on business requirements, expected traffic, availability targets and budget.
+
+The final architecture should therefore be selected based on:
+
+- Business requirements
+- Expected traffic
+- Availability targets
+- Performance requirements
+- Operational requirements
+- Budget
+
+---
+
+## Project Cost Summary
+
+| Architecture | Cost Level | Scalability | Availability | Complexity |
+|---|---|---|---|---|
+| Single EC2 | Low | Low | Low to Moderate | Low |
+| Scalable AWS Architecture | Higher | High | High | Moderate |
+
+The scalable architecture represents a higher initial infrastructure cost but provides significantly stronger scalability, availability, fault tolerance and operational capabilities.
