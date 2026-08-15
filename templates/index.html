@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AWS Scalable Hosting Architecture</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="aws-icon">AWS</div>
+
+            <div>
+                <h1>Scalable Hosting Architecture</h1>
+                <p>AWS APAC Solutions Architecture Project</p>
+            </div>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            SYSTEM OPERATIONAL
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <span class="tag">
+                    SOLUTIONS ARCHITECTURE
+                </span>
+
+                <h2>
+                    Designing a Simple,
+                    Scalable Hosting Architecture
+                </h2>
+
+                <p>
+                    A cloud architecture designed to improve application
+                    availability, scalability, performance and operational
+                    reliability using AWS services.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#architecture" class="primary-btn">
+                        View Architecture
+                    </a>
+
+                    <a href="/health" class="secondary-btn">
+                        Health Check
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="card-header">
+                    <span>APPLICATION STATUS</span>
+                    <span class="live">● LIVE</span>
+                </div>
+
+                <div class="metric">
+                    <span>Environment</span>
+                    <strong>{{ environment }}</strong>
+                </div>
+
+                <div class="metric">
+                    <span>Instance</span>
+                    <strong>{{ hostname }}</strong>
+                </div>
+
+                <div class="metric">
+                    <span>Region</span>
+                    <strong>{{ region }}</strong>
+                </div>
+
+                <div class="metric">
+                    <span>Last Check</span>
+                    <strong>{{ current_time }}</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="tag">BUSINESS PROBLEM</span>
+
+                    <h2>Why the architecture was redesigned</h2>
+                </div>
+
+            </div>
+
+
+            <div class="problem-grid">
+
+                <div class="problem-card">
+                    <div class="problem-icon">01</div>
+                    <h3>Performance</h3>
+                    <p>
+                        A single server can become a bottleneck when
+                        application traffic increases.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">02</div>
+                    <h3>Availability</h3>
+                    <p>
+                        A single-instance architecture creates a
+                        single point of failure.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">03</div>
+                    <h3>Scalability</h3>
+                    <p>
+                        Manual server expansion becomes difficult
+                        during unpredictable traffic spikes.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">04</div>
+                    <h3>Operations</h3>
+                    <p>
+                        Application deployment and infrastructure
+                        management can consume engineering time.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="architecture" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="tag">AWS ARCHITECTURE</span>
+
+                    <h2>Scalable Cloud Design</h2>
+                </div>
+
+            </div>
+
+
+            <div class="architecture">
+
+                <div class="arch-node users">
+                    <div class="node-icon">👥</div>
+                    <strong>Users</strong>
+                    <span>Internet Traffic</span>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="arch-node">
+                    <div class="node-icon">🌐</div>
+                    <strong>Amazon Route 53</strong>
+                    <span>DNS</span>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="arch-node highlight">
+                    <div class="node-icon">⚖️</div>
+                    <strong>Application Load Balancer</strong>
+                    <span>Traffic Distribution</span>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="instance-row">
+
+                    <div class="arch-node">
+                        <div class="node-icon">🖥️</div>
+                        <strong>EC2 Instance 1</strong>
+                        <span>Application Server</span>
+                    </div>
+
+                    <div class="arch-node">
+                        <div class="node-icon">🖥️</div>
+                        <strong>EC2 Instance 2</strong>
+                        <span>Application Server</span>
+                    </div>
+
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="arch-node green">
+                    <div class="node-icon">📈</div>
+                    <strong>Auto Scaling</strong>
+                    <span>Scale based on demand</span>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="service-row">
+
+                    <div class="arch-node">
+                        <div class="node-icon">🗄️</div>
+                        <strong>Amazon RDS</strong>
+                        <span>Database</span>
+                    </div>
+
+                    <div class="arch-node">
+                        <div class="node-icon">📦</div>
+                        <strong>Amazon S3</strong>
+                        <span>Object Storage</span>
+                    </div>
+
+                    <div class="arch-node">
+                        <div class="node-icon">📊</div>
+                        <strong>CloudWatch</strong>
+                        <span>Monitoring</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <span class="tag">AWS SERVICES</span>
+
+            <h2>Technology Components</h2>
+
+
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <span class="service-number">01</span>
+                    <h3>Elastic Beanstalk</h3>
+                    <p>
+                        Application deployment and environment management.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">02</span>
+                    <h3>EC2</h3>
+                    <p>
+                        Compute instances that run the web application.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">03</span>
+                    <h3>Load Balancer</h3>
+                    <p>
+                        Distributes incoming requests across healthy instances.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">04</span>
+                    <h3>Auto Scaling</h3>
+                    <p>
+                        Adjusts compute capacity according to application demand.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">05</span>
+                    <h3>Amazon RDS</h3>
+                    <p>
+                        Managed relational database service.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">06</span>
+                    <h3>Amazon S3</h3>
+                    <p>
+                        Durable object storage for files and application assets.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">07</span>
+                    <h3>CloudWatch</h3>
+                    <p>
+                        Application and infrastructure monitoring.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-number">08</span>
+                    <h3>Route 53</h3>
+                    <p>
+                        DNS routing for the application.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <span class="tag">ARCHITECTURE BENEFITS</span>
+
+            <h2>Expected Improvements</h2>
+
+            <div class="benefits">
+
+                <div>
+                    <strong>01</strong>
+                    <h3>Higher Availability</h3>
+                    <p>
+                        Multiple application instances reduce dependence
+                        on a single server.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <h3>Automatic Scaling</h3>
+                    <p>
+                        Application capacity can increase or decrease
+                        according to traffic.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    <h3>Better Performance</h3>
+                    <p>
+                        Load balancing distributes incoming requests
+                        across application instances.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>04</strong>
+                    <h3>Operational Efficiency</h3>
+                    <p>
+                        Elastic Beanstalk reduces the infrastructure
+                        management burden.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section final-section">
+
+            <div>
+
+                <span class="tag">PROJECT SUMMARY</span>
+
+                <h2>
+                    From a single-server bottleneck
+                    to a scalable cloud architecture.
+                </h2>
+
+                <p>
+                    The proposed architecture separates traffic management,
+                    application compute, storage, database services and
+                    monitoring to create a more resilient and scalable
+                    hosting solution.
+                </p>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div>
+                    <span>DEPLOYMENT</span>
+                    <strong>AWS Elastic Beanstalk</strong>
+                </div>
+
+                <div>
+                    <span>COMPUTE</span>
+                    <strong>Amazon EC2</strong>
+                </div>
+
+                <div>
+                    <span>SCALING</span>
+                    <strong>Auto Scaling</strong>
+                </div>
+
+                <div>
+                    <span>MONITORING</span>
+                    <strong>CloudWatch</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            AWS APAC Solutions Architecture Project
+        </p>
+
+        <p>
+            Designed for scalable, reliable and cost-aware cloud hosting.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
